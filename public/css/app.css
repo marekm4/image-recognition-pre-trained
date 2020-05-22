@@ -1,0 +1,9 @@
+.example-image {
+    height: 100px;
+    cursor: pointer;
+}
+
+.container > div {
+    padding-top: 2px;
+    padding-bottom: 10px;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Image Recognition</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/app.css">
+    </head>
+    <body>
+        <div class="container">
+            <div>
+                Recognition status: 
+                <em id="status">
+                    Select option from below
+                </em>
+            </div>
+            <div>
+                Use example image:
+                <br>
+                <img class="example-image" src="https://c402277.ssl.cf1.rackcdn.com/photos/479/images/story_full_width/giant-panda-shutterstock_86500690.jpg">
+                <img class="example-image" src="https://images.theconversation.com/files/242298/original/file-20181025-71032-1hmrk2l.jpg?ixlib=rb-1.1.0&rect=0%2C584%2C5007%2C2503&q=45&auto=format&w=1356&h=668&fit=crop">
+                <img class="example-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Loxodonta_africana_-_old_bull_%28Ngorongoro%2C_2009%29.jpg/1280px-Loxodonta_africana_-_old_bull_%28Ngorongoro%2C_2009%29.jpg">
+            </div>
+            <div>
+                Enter image URL:
+                <form id="url-form" action="url" method="post">
+                    <input name="url">
+                </form>
+            </div>
+            <div>
+                Upload own image:
+                <form id="upload-form" action="upload" method="post" enctype="multipart/form-data">
+                    <input name="file" type="file">
+                </form>
+            </div>
+            <div>
+                <a href="https://github.com/marekm4/image-recognition-pre-trained">GitHub</a>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>
