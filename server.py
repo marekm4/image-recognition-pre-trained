@@ -1,6 +1,6 @@
 import os
 
-from sanic import Sanic, response
+from flask import Flask, send_file, request
 from PIL import Image
 import requests
 from io import BytesIO
@@ -8,23 +8,35 @@ from io import BytesIO
 from model import Model
 
 model = Model()
+app = Flask('image-recognition-pre-trained')
 
-app = Sanic('image-recognition-pre-trained')
-app.static('/', './public/index.html')
-app.static('/css', './public/css')
-app.static('/js', './public/js')
+
+@app.route('/')
+def index():
+    return send_file('./public/index.html')
+
+
+@app.route('/css/app.css')
+def css():
+    return send_file('public/css/app.css')
+
+
+@app.route('/js/app.js')
+def js():
+    return send_file('public/js/app.js')
 
 
 @app.route('/url', methods=['POST'])
-async def url(request):
-    image = Image.open(BytesIO(requests.get(request.form.get('url')).content))
-    return response.text(model.predict(image))
+def url():
+    image = Image.open(BytesIO(requests.get(request.form['url']).content))
+    return model.predict(image)
 
 
 @app.route('/upload', methods=['POST'])
-async def url(request):
-    image = Image.open(BytesIO(request.files.get('file').body))
-    return response.text(model.predict(image))
+def upload():
+    image = Image.open(BytesIO(request.files['file'].read()))
+    return model.predict(image)
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int(os.getenv('PORT', '8080')))
