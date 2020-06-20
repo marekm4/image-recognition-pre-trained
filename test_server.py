@@ -1,5 +1,3 @@
-from io import BytesIO
-
 from server import app
 
 
