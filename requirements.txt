@@ -3,3 +3,4 @@ https://download.pytorch.org/whl/cpu/torchvision-0.6.0%2Bcpu-cp38-cp38-linux_x86
 requests==2.22.0
 Flask==1.1.2
 gunicorn==20.0.4
+pytest==5.4.3
